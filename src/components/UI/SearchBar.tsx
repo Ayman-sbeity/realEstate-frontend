@@ -31,15 +31,15 @@ const StyledTextField = styled(TextField)<{
         : "60px"}; /* reserve space for the button */
 
     & fieldset {
-      border: 2px solid #e0e0e0;
+      border: 2px solid ${({ theme }) => theme.palette.divider};
     }
 
     &:hover fieldset {
-      border-color: #d73502;
+      border-color: ${({ theme }) => theme.palette.secondary.main};
     }
 
     &.Mui-focused fieldset {
-      border-color: #d73502;
+      border-color: ${({ theme }) => theme.palette.secondary.main};
       border-width: 2px;
     }
   }
@@ -56,7 +56,7 @@ const StyledTextField = styled(TextField)<{
 const SearchButton = styled(IconButton)<{
   variant?: "navbar" | "hero" | "mobile";
 }>`
-  background-color: #d73502;
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   color: white;
   border-radius: 6px;
   min-width: ${(props) => (props.variant === "hero" ? "44px" : "36px")};
@@ -69,7 +69,7 @@ const SearchButton = styled(IconButton)<{
   z-index: 2; /* ensure it's above the input background */
 
   &:hover {
-    background-color: #c12e02;
+    background-color: ${({ theme }) => theme.palette.secondary.dark};
     color: white;
   }
 

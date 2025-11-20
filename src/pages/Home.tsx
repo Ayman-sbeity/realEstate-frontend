@@ -34,10 +34,11 @@ import ArticleIcon from "@mui/icons-material/Article";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { AdSenseAd } from "../components/UI";
+import { useTheme } from "@mui/material/styles";
 
 const HeroSection = styled(Box)(({ theme }) => ({
   position: "relative",
-  background: `url('/mountainhead-house.webp') no-repeat center center`,
+  background: `linear-gradient(180deg, rgba(12, 21, 36, 0.45) 0%, rgba(12, 21, 36, 0.65) 60%), url('/mountainhead-house.webp') no-repeat center center`,
   backgroundSize: "cover",
   backgroundAttachment: "fixed",
   color: "white",
@@ -88,6 +89,7 @@ const SearchContainer = styled(Box)(({ theme }) => ({
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const theme = useTheme();
   const [location, setLocation] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [priceRange, setPriceRange] = useState("");
@@ -180,7 +182,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <LocationOnIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Beirut
                       </Box>
@@ -190,7 +192,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <LocationOnIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Jounieh
                       </Box>
@@ -200,7 +202,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <LocationOnIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Byblos (Jbeil)
                       </Box>
@@ -210,7 +212,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <LocationOnIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Tripoli
                       </Box>
@@ -220,7 +222,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <LocationOnIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Saida (Sidon)
                       </Box>
@@ -230,7 +232,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <LocationOnIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Batroun
                       </Box>
@@ -250,7 +252,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <HomeIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         House
                       </Box>
@@ -260,7 +262,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <HomeIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Apartment
                       </Box>
@@ -270,7 +272,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <HomeIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Condo
                       </Box>
@@ -280,7 +282,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <HomeIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Townhouse
                       </Box>
@@ -290,7 +292,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <HomeIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Villa
                       </Box>
@@ -300,7 +302,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <HomeIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         Land
                       </Box>
@@ -320,7 +322,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <AttachMoneyIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         $0 - $200,000
                       </Box>
@@ -330,7 +332,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <AttachMoneyIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         $200,000 - $400,000
                       </Box>
@@ -340,7 +342,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <AttachMoneyIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         $400,000 - $600,000
                       </Box>
@@ -350,7 +352,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <AttachMoneyIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         $600,000 - $800,000
                       </Box>
@@ -360,7 +362,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <AttachMoneyIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         $800,000 - $1,000,000
                       </Box>
@@ -370,7 +372,7 @@ const Home: React.FC = () => {
                         sx={{ display: "flex", alignItems: "center", gap: 1 }}
                       >
                         <AttachMoneyIcon
-                          sx={{ color: "#d92228", fontSize: "1.2rem" }}
+                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
                         />
                         $1,000,000+
                       </Box>
@@ -386,7 +388,7 @@ const Home: React.FC = () => {
                 onClick={handleSearch}
                 startIcon={<SearchIcon />}
                 sx={{
-                  backgroundColor: "#d92228",
+                  backgroundColor: theme.palette.secondary.main,
                   color: "white",
                   py: 1.5,
                   fontSize: "1.1rem",
@@ -394,8 +396,8 @@ const Home: React.FC = () => {
                   textTransform: "none",
                   boxShadow: "0 4px 12px rgba(217, 34, 40, 0.3)",
                   "&:hover": {
-                    backgroundColor: "#b91c22",
-                    boxShadow: "0 6px 16px rgba(217, 34, 40, 0.4)",
+                    backgroundColor: theme.palette.secondary.dark || "#0a4edc",
+                    boxShadow: `0 6px 16px ${theme.palette.secondary.light ? `rgba(11,95,255,0.2)` : `rgba(10, 15, 36, 0.12)`}`,
                   },
                 }}
               >
@@ -422,7 +424,7 @@ const Home: React.FC = () => {
           >
             <Box sx={{ textAlign: "center" }}>
               <ApartmentIcon
-                sx={{ fontSize: "3rem", color: "#d92228", mb: 2 }}
+                sx={{ fontSize: "3rem", color: theme.palette.secondary.main, mb: 2 }}
               />
               <Typography
                 variant="h3"
@@ -438,7 +440,7 @@ const Home: React.FC = () => {
               </Typography>
             </Box>
             <Box sx={{ textAlign: "center" }}>
-              <PeopleIcon sx={{ fontSize: "3rem", color: "#d92228", mb: 2 }} />
+              <PeopleIcon sx={{ fontSize: "3rem", color: theme.palette.secondary.main, mb: 2 }} />
               <Typography
                 variant="h3"
                 sx={{ fontWeight: 700, color: "#1a1a1a", mb: 1 }}
@@ -454,7 +456,7 @@ const Home: React.FC = () => {
             </Box>
             <Box sx={{ textAlign: "center" }}>
               <TrendingUpIcon
-                sx={{ fontSize: "3rem", color: "#d92228", mb: 2 }}
+                sx={{ fontSize: "3rem", color: theme.palette.secondary.main, mb: 2 }}
               />
               <Typography
                 variant="h3"
@@ -471,7 +473,7 @@ const Home: React.FC = () => {
             </Box>
             <Box sx={{ textAlign: "center" }}>
               <VerifiedIcon
-                sx={{ fontSize: "3rem", color: "#d92228", mb: 2 }}
+                sx={{ fontSize: "3rem", color: theme.palette.secondary.main, mb: 2 }}
               />
               <Typography
                 variant="h3"
@@ -549,7 +551,7 @@ const Home: React.FC = () => {
                   label={t.pages.home.featured.forSale}
                   size="small"
                   sx={{
-                    backgroundColor: "#d92228",
+                    backgroundColor: theme.palette.secondary.main,
                     color: "white",
                     fontWeight: 500,
                     mb: 2,
@@ -568,12 +570,12 @@ const Home: React.FC = () => {
                     gap: 0.5,
                   }}
                 >
-                  <LocationOnIcon sx={{ fontSize: "1rem", color: "#d92228" }} />
+                  <LocationOnIcon sx={{ fontSize: "1rem", color: theme.palette.secondary.main }} />
                   Achrafieh, Beirut
                 </Typography>
                 <Typography
                   variant="h5"
-                  sx={{ color: "#d92228", fontWeight: 700 }}
+                  sx={{ color: theme.palette.secondary.main, fontWeight: 700 }}
                 >
                   $850,000
                 </Typography>
@@ -605,7 +607,7 @@ const Home: React.FC = () => {
                   label={t.pages.home.featured.forRent}
                   size="small"
                   sx={{
-                    backgroundColor: "#28a745",
+                    backgroundColor: theme.palette.primary.main,
                     color: "white",
                     fontWeight: 500,
                     mb: 2,
@@ -624,12 +626,12 @@ const Home: React.FC = () => {
                     gap: 0.5,
                   }}
                 >
-                  <LocationOnIcon sx={{ fontSize: "1rem", color: "#d92228" }} />
+                  <LocationOnIcon sx={{ fontSize: "1rem", color: theme.palette.secondary.main }} />
                   Maameltein, Jounieh
                 </Typography>
                 <Typography
                   variant="h5"
-                  sx={{ color: "#d92228", fontWeight: 700 }}
+                  sx={{ color: theme.palette.secondary.main, fontWeight: 700 }}
                 >
                   $2,500/mo
                 </Typography>
@@ -661,7 +663,7 @@ const Home: React.FC = () => {
                   label={t.pages.home.featured.forSale}
                   size="small"
                   sx={{
-                    backgroundColor: "#d92228",
+                    backgroundColor: theme.palette.secondary.main,
                     color: "white",
                     fontWeight: 500,
                     mb: 2,
@@ -680,12 +682,12 @@ const Home: React.FC = () => {
                     gap: 0.5,
                   }}
                 >
-                  <LocationOnIcon sx={{ fontSize: "1rem", color: "#d92228" }} />
+                  <LocationOnIcon sx={{ fontSize: "1rem", color: theme.palette.secondary.main }} />
                   Old Souk, Byblos
                 </Typography>
                 <Typography
                   variant="h5"
-                  sx={{ color: "#d92228", fontWeight: 700 }}
+                  sx={{ color: theme.palette.secondary.main, fontWeight: 700 }}
                 >
                   $1,200,000
                 </Typography>
@@ -701,16 +703,16 @@ const Home: React.FC = () => {
               variant="outlined"
               size="large"
               sx={{
-                borderColor: "#d92228",
-                color: "#d92228",
+                borderColor: theme.palette.secondary.main,
+                color: theme.palette.secondary.main,
                 px: 4,
                 py: 1.5,
                 fontSize: "1.1rem",
                 fontWeight: 500,
                 textTransform: "none",
                 "&:hover": {
-                  borderColor: "#b91c22",
-                  backgroundColor: "rgba(217, 34, 40, 0.05)",
+                  borderColor: theme.palette.secondary.dark || theme.palette.secondary.main,
+                  backgroundColor: "rgba(11, 95, 255, 0.05)",
                 },
               }}
             >
@@ -828,7 +830,7 @@ const Home: React.FC = () => {
                 </Typography>
                 <Typography
                   variant="body2"
-                  sx={{ color: "#d92228", fontWeight: 500 }}
+                  sx={{ color: theme.palette.secondary.main, fontWeight: 500 }}
                 >
                   {location.properties} {t.pages.home.locations.properties}
                 </Typography>
@@ -842,7 +844,7 @@ const Home: React.FC = () => {
               size="large"
               startIcon={<MapIcon />}
               sx={{
-                backgroundColor: "#d92228",
+                backgroundColor: theme.palette.secondary.main,
                 color: "white",
                 px: 4,
                 py: 1.5,
@@ -850,7 +852,7 @@ const Home: React.FC = () => {
                 fontWeight: 500,
                 textTransform: "none",
                 "&:hover": {
-                  backgroundColor: "#b91c22",
+                  backgroundColor: theme.palette.secondary.dark || theme.palette.secondary.main,
                 },
               }}
             >
@@ -932,7 +934,7 @@ const Home: React.FC = () => {
                       width: 100,
                       height: 100,
                       margin: "0 auto 16px",
-                      backgroundColor: "#d92228",
+                      backgroundColor: theme.palette.secondary.main,
                       fontSize: "2.5rem",
                       fontWeight: 600,
                     }}
@@ -947,7 +949,7 @@ const Home: React.FC = () => {
                   </Typography>
                   <Typography
                     variant="body2"
-                    sx={{ color: "#d92228", mb: 2, fontWeight: 500 }}
+                    sx={{ color: theme.palette.secondary.main, mb: 2, fontWeight: 500 }}
                   >
                     {agent.specialty}
                   </Typography>
@@ -970,7 +972,7 @@ const Home: React.FC = () => {
                       sx={{
                         backgroundColor: "#f0f0f0",
                         "&:hover": {
-                          backgroundColor: "#d92228",
+                          backgroundColor: theme.palette.secondary.main,
                           color: "white",
                         },
                       }}
@@ -982,7 +984,7 @@ const Home: React.FC = () => {
                       sx={{
                         backgroundColor: "#f0f0f0",
                         "&:hover": {
-                          backgroundColor: "#d92228",
+                          backgroundColor: theme.palette.secondary.main,
                           color: "white",
                         },
                       }}
@@ -995,12 +997,12 @@ const Home: React.FC = () => {
                     variant="outlined"
                     size="small"
                     sx={{
-                      borderColor: "#d92228",
-                      color: "#d92228",
+                      borderColor: theme.palette.secondary.main,
+                      color: theme.palette.secondary.main,
                       textTransform: "none",
                       "&:hover": {
-                        borderColor: "#b91c22",
-                        backgroundColor: "rgba(217, 34, 40, 0.05)",
+                        borderColor: theme.palette.secondary.dark || theme.palette.secondary.main,
+                        backgroundColor: "rgba(11, 95, 255, 0.05)",
                       },
                     }}
                   >
@@ -1016,16 +1018,16 @@ const Home: React.FC = () => {
               variant="outlined"
               size="large"
               sx={{
-                borderColor: "#d92228",
-                color: "#d92228",
+                borderColor: theme.palette.secondary.main,
+                color: theme.palette.secondary.main,
                 px: 4,
                 py: 1.5,
                 fontSize: "1rem",
                 fontWeight: 500,
                 textTransform: "none",
                 "&:hover": {
-                  borderColor: "#b91c22",
-                  backgroundColor: "rgba(217, 34, 40, 0.05)",
+                  borderColor: theme.palette.secondary.dark || theme.palette.secondary.main,
+                  backgroundColor: "rgba(11, 95, 255, 0.05)",
                 },
               }}
             >
@@ -1125,8 +1127,8 @@ const Home: React.FC = () => {
                     size="small"
                     sx={{
                       alignSelf: "flex-start",
-                      backgroundColor: "#fff3f0",
-                      color: "#d92228",
+                      backgroundColor: theme.palette.secondary.light || "#e3f0ff",
+                      color: theme.palette.secondary.main,
                       fontWeight: 500,
                       mb: 2,
                     }}
@@ -1171,12 +1173,12 @@ const Home: React.FC = () => {
                     fullWidth
                     endIcon={<ArrowForwardIcon />}
                     sx={{
-                      color: "#d92228",
+                      color: theme.palette.secondary.main,
                       textTransform: "none",
                       fontWeight: 500,
                       justifyContent: "space-between",
                       "&:hover": {
-                        backgroundColor: "rgba(217, 34, 40, 0.05)",
+                        backgroundColor: theme.palette.secondary.light ? "rgba(11, 95, 255, 0.05)" : "#e3f0ff",
                       },
                     }}
                   >
@@ -1193,7 +1195,7 @@ const Home: React.FC = () => {
               size="large"
               endIcon={<ArticleIcon />}
               sx={{
-                backgroundColor: "#d92228",
+                backgroundColor: theme.palette.secondary.main,
                 color: "white",
                 px: 4,
                 py: 1.5,
@@ -1201,7 +1203,7 @@ const Home: React.FC = () => {
                 fontWeight: 500,
                 textTransform: "none",
                 "&:hover": {
-                  backgroundColor: "#b91c22",
+                  backgroundColor: theme.palette.secondary.dark || theme.palette.secondary.main,
                 },
               }}
             >

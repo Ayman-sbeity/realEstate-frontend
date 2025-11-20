@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #d92228;
+  color: var(--color-primary);
   font-weight: bold;
   font-size: 24px;
 }
@@ -39,7 +39,7 @@
 }
 
 .logo-text {
-  color: #d92228;
+  color: var(--color-primary);
   font-weight: 700;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .nav-link:hover {
-  color: #d92228;
+  color: var(--color-accent);
 }
 
 .nav-link::after {
@@ -82,7 +82,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #d92228;
+  background-color: var(--color-accent);
   transition: width 0.3s ease;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .search-input:focus {
-  border-color: #d92228;
+  border-color: var(--color-accent);
 }
 
 .search-input::placeholder {
@@ -124,7 +124,7 @@
 .search-button {
   position: absolute;
   right: 8px;
-  background: #d92228;
+  background: var(--color-accent);
   border: none;
   border-radius: 6px;
   padding: 8px;
@@ -163,12 +163,12 @@
 }
 
 .action-btn:hover {
-  background-color: #d92228;
+  background-color: var(--color-accent);
   color: white;
 }
 
 .action-btn.primary {
-  background-color: #d92228;
+  background-color: var(--color-accent);
   color: white;
 }
 

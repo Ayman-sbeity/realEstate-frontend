@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import theme from "./theme";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { AuthProvider } from "./contexts/AuthContext";
 
@@ -15,7 +17,10 @@ root.render(
     <BrowserRouter>
       <LanguageProvider>
         <AuthProvider>
-          <App />
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <App />
+          </ThemeProvider>
         </AuthProvider>
       </LanguageProvider>
     </BrowserRouter>

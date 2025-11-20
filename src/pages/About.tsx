@@ -5,10 +5,11 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { useLanguage } from '../contexts/LanguageContext';
+import theme from "../theme";
 
 const HeroSection = styled(Box)(({ theme }) => ({
   position: 'relative',
-  background: `linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)`,
+  background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 50%, ${theme.palette.primary.light} 100%)`,
   color: "white",
   padding: theme.spacing(12, 3),
   textAlign: "center",
@@ -48,7 +49,7 @@ const TeamCard = styled(Card)(({ theme }) => ({
   '&:hover': {
     transform: 'translateY(-8px)',
     boxShadow: '0 12px 28px rgba(0,0,0,0.15)',
-    borderColor: '#d92228',
+    borderColor: theme.palette.secondary.main,
   },
 }));
 
@@ -211,7 +212,7 @@ const About: React.FC = () => {
                   height: 120, 
                   mx: 'auto', 
                   mb: 3,
-                  background: 'linear-gradient(135deg, #d92228 0%, #b71c1c 100%)',
+                  background: `linear-gradient(135deg, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.dark} 100%)`,
                   fontSize: '3rem',
                   fontWeight: 700,
                   boxShadow: '0 4px 12px rgba(217, 34, 40, 0.3)'
@@ -226,7 +227,7 @@ const About: React.FC = () => {
                 <Typography 
                   variant="subtitle1" 
                   sx={{ 
-                    color: '#d92228', 
+                    color: theme.palette.secondary.main,
                     mb: 2, 
                     fontWeight: 600,
                     fontSize: '1rem'
@@ -289,7 +290,7 @@ const About: React.FC = () => {
                 <Typography 
                   variant="subtitle1" 
                   sx={{ 
-                    color: '#d92228', 
+                    color: theme.palette.secondary.main,
                     mb: 2, 
                     fontWeight: 600,
                     fontSize: '1rem'
@@ -315,14 +316,14 @@ const About: React.FC = () => {
                 <Divider sx={{ my: 2 }} />
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mt: 2 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                    <PhoneIcon sx={{ fontSize: 18, color: '#d92228' }} />
+                    <PhoneIcon sx={{ fontSize: 18, color: theme.palette.secondary.main }} />
                     <Typography variant="body2" sx={{ fontWeight: 500 }}>
                       {t.pages.about.founders.richy.phone}
                     </Typography>
                   </Box>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0.5, mt: 1 }}>
-                  <EmailIcon sx={{ fontSize: 18, color: '#d92228' }} />
+                  <EmailIcon sx={{ fontSize: 18, color: theme.palette.secondary.main }} />
                   <Typography variant="body2" sx={{ fontWeight: 500 }}>
                     {t.pages.about.founders.richy.email}
                   </Typography>
@@ -390,7 +391,7 @@ const About: React.FC = () => {
                 transform: 'translateY(-4px)'
               }
             }}>
-              <PhoneIcon sx={{ fontSize: 56, color: '#d92228', mb: 2 }} />
+                  <PhoneIcon sx={{ fontSize: 56, color: theme.palette.secondary.main, mb: 2 }} />
               <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
                 {t.pages.about.contact.callUs}
               </Typography>
@@ -408,7 +409,7 @@ const About: React.FC = () => {
                 transform: 'translateY(-4px)'
               }
             }}>
-              <EmailIcon sx={{ fontSize: 56, color: '#d92228', mb: 2 }} />
+              <EmailIcon sx={{ fontSize: 56, color: theme.palette.secondary.main, mb: 2 }} />
               <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
                 {t.pages.about.contact.emailUs}
               </Typography>

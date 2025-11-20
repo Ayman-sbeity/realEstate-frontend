@@ -15,6 +15,16 @@ body {
   color: #333;
 }
 
+/* Design tokens for non-MUI styles. Use CSS variables to keep design consistent. */
+:root {
+  --color-primary: #1e293b;
+  --color-accent: #d92228;
+  --color-muted: #6b7280;
+  --bg-soft: #f7f9fb;
+  --radius-md: 10px;
+  --spacing-md: 16px;
+}
+
 /* Arabic font support */
 html[lang="ar"] body {
   font-family: 'Segoe UI', 'Arial', 'Tahoma', sans-serif;

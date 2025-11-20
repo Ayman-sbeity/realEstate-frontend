@@ -23,7 +23,7 @@ import { Logo } from "../components/UI";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const FooterContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: "#2d2d2d",
+  backgroundColor: "#1f2937",
   color: "#ffffff",
   paddingTop: theme.spacing(5),
   paddingBottom: theme.spacing(3),
@@ -42,26 +42,26 @@ const FooterTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const FooterLink = styled(Link)(({ theme }) => ({
-  color: "#cccccc",
+  color: theme.palette.text.secondary,
   textDecoration: "none",
   fontSize: "0.875rem",
   display: "block",
   marginBottom: theme.spacing(1),
   transition: "color 0.3s ease",
   "&:hover": {
-    color: "#d92228",
+    color: theme.palette.secondary.main,
     textDecoration: "none",
   },
 }));
 
 const SocialIconButton = styled(IconButton)(({ theme }) => ({
-  backgroundColor: "#444",
+  backgroundColor: "#2f3944",
   color: "#cccccc",
   width: 40,
   height: 40,
   transition: "all 0.3s ease",
   "&:hover": {
-    backgroundColor: "#d92228",
+    backgroundColor: theme.palette.secondary.main,
     color: "#ffffff",
     transform: "translateY(-2px)",
   },
@@ -71,7 +71,7 @@ const AppButton = styled(Link)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   padding: theme.spacing(1, 2),
-  backgroundColor: "#444",
+  backgroundColor: "#2f3944",
   borderRadius: theme.spacing(1),
   textDecoration: "none",
   color: "#ffffff",

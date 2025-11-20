@@ -27,56 +27,64 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { useAuth } from "../contexts/AuthContext";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  backgroundColor: "#ffffff",
-  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-  borderBottom: "1px solid #e6e6e6",
-  color: "#333",
+  background: 'rgba(255,255,255,0.7)',
+  backdropFilter: 'blur(12px)',
+  boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+  color: theme.palette.text.primary,
+  border: '1px solid rgba(200,200,200,0.18)',
 }));
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-  height: 70,
-  padding: "0 20px",
-  [theme.breakpoints.down("md")]: {
-    padding: "0 16px",
-  },
-  [theme.breakpoints.down("sm")]: {
-    height: 60,
-    padding: "0 12px",
+  minHeight: 70,
+  padding: '0 32px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  [theme.breakpoints.down('md')]: {
+    padding: '0 16px',
+    minHeight: 60,
   },
 }));
 
 const DesktopNavContainer = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  flex: 1,
-  justifyContent: "space-between",
-  maxWidth: 1400,
-  margin: "0 auto",
-  width: "100%",
+  display: 'flex',
+  alignItems: 'center',
+  width: '100%',
+  justifyContent: 'space-between',
+  gap: 0,
+  padding: 0,
 }));
 
 const SearchContainer = styled(Box)(({ theme }) => ({
   flex: 1,
-  maxWidth: 500,
-  margin: "0 40px",
-  [theme.breakpoints.down("lg")]: {
-    maxWidth: 300,
-    margin: "0 20px",
+  maxWidth: 350,
+  margin: '0 24px',
+  [theme.breakpoints.down('lg')]: {
+    maxWidth: 220,
+    margin: '0 10px',
   },
 }));
 
 const MobileMenuButton = styled(IconButton)(({ theme }) => ({
-  color: "#333",
+  color: theme.palette.secondary.main,
+  background: 'rgba(255,255,255,0.7)',
+  borderRadius: '50%',
+  boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
   padding: 8,
+  '&:hover': {
+    background: 'rgba(217,34,40,0.08)',
+  },
 }));
 
 const DrawerContent = styled(Box)(({ theme }) => ({
-  width: 280,
-  padding: theme.spacing(2),
-  height: "100%",
-  display: "flex",
-  flexDirection: "column",
-  gap: theme.spacing(3),
+  width: 320,
+  padding: theme.spacing(3),
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(4),
+  background: 'rgba(255,255,255,0.85)',
+  backdropFilter: 'blur(16px)',
 }));
 
 const Navbar: React.FC = () => {
@@ -129,35 +137,75 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <StyledAppBar position="sticky">
+      <StyledAppBar position="static" elevation={0}>
         <StyledToolbar>
           <DesktopNavContainer>
             {/* Logo */}
-            <Logo href="/" />
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <Logo href="/" />
+            </Box>
 
-            {!isMobile ? (
-              <>
-                <Box sx={{ ml: 2 }}>
-                  <NavigationMenu items={navigationItems} gap={30} />
-                </Box>
+            {/* Navigation Items - pill shaped */}
+            {!isMobile && (
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                {navigationItems.map((item, idx) => (
+                  <Button
+                    key={item.label}
+                    href={item.href}
+                    variant="text"
+                    sx={{
+                      borderRadius: '20px',
+                      px: 2.5,
+                      py: 1,
+                      fontWeight: 500,
+                      color: theme.palette.text.primary,
+                      background: 'transparent',
+                      transition: 'all 0.2s',
+                      fontSize: '1rem',
+                      letterSpacing: '0.2px',
+                      '&:hover': {
+                        background: theme.palette.secondary.light,
+                        color: theme.palette.secondary.main,
+                        boxShadow: '0 2px 8px rgba(217,34,40,0.08)',
+                      },
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                ))}
+              </Box>
+            )}
 
+            {/* Divider */}
+            {!isMobile && (
+              <Box sx={{ height: 36, width: '1.5px', background: '#e0e0e0', mx: 2, borderRadius: 1 }} />
+            )}
+
+            {/* Search, Language, User/Actions */}
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              {!isMobile && (
                 <SearchContainer>
                   <SearchBar onSearch={handleSearch} variant="navbar" />
                 </SearchContainer>
-
-                <LanguageToggle />
-
-                {isAuthenticated && user ? (
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <Typography variant="body1" sx={{ color: "#333" }}>
+              )}
+              <LanguageToggle />
+              {!isMobile ? (
+                isAuthenticated && user ? (
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <Typography variant="body2" sx={{ color: theme.palette.secondary.main, fontWeight: 500 }}>
                       {t.nav.welcome}, {user.name}
                     </Typography>
                     <Button
                       onClick={handleUserMenuOpen}
                       sx={{
-                        color: "#333",
-                        textTransform: "none",
-                        "&:hover": { backgroundColor: "rgba(0,0,0,0.04)" },
+                        color: theme.palette.secondary.main,
+                        textTransform: 'none',
+                        fontWeight: 500,
+                        fontSize: '1rem',
+                        borderRadius: '8px',
+                        px: 1.5,
+                        background: 'rgba(217,34,40,0.07)',
+                        '&:hover': { backgroundColor: 'rgba(217,34,40,0.13)' },
                       }}
                     >
                       ▼
@@ -167,18 +215,15 @@ const Navbar: React.FC = () => {
                       open={Boolean(userMenuAnchor)}
                       onClose={handleUserMenuClose}
                     >
-                      <MenuItem onClick={() => { handleUserMenuClose(); navigate('/profile'); }}>{t.nav.profile || "Profile"}</MenuItem>
+                      <MenuItem onClick={() => { handleUserMenuClose(); navigate('/profile'); }}>{t.nav.profile || 'Profile'}</MenuItem>
                       <MenuItem onClick={handleLogout}>{t.nav.logout}</MenuItem>
                     </Menu>
                   </Box>
                 ) : (
                   <ActionButtons buttons={actionButtons} />
-                )}
-              </>
-            ) : (
-              <>
-                <Box sx={{ marginLeft: "auto", display: "flex", gap: 1 }}>
-                  <LanguageToggle />
+                )
+              ) : (
+                <Box sx={{ display: 'flex', gap: 1 }}>
                   <MobileMenuButton
                     onClick={handleMobileMenuToggle}
                     aria-label="open menu"
@@ -186,19 +231,24 @@ const Navbar: React.FC = () => {
                     <MenuIcon />
                   </MobileMenuButton>
                 </Box>
-              </>
-            )}
+              )}
+            </Box>
           </DesktopNavContainer>
         </StyledToolbar>
       </StyledAppBar>
 
+      {/* Mobile Drawer */}
       <Drawer
         anchor="right"
         open={mobileMenuOpen}
         onClose={handleMobileMenuToggle}
         sx={{
-          "& .MuiDrawer-paper": {
-            width: 280,
+          '& .MuiDrawer-paper': {
+            width: 320,
+            background: 'rgba(255,255,255,0.85)',
+            backdropFilter: 'blur(16px)',
+            borderRadius: '18px 0 0 18px',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
           },
         }}
       >
@@ -206,14 +256,12 @@ const Navbar: React.FC = () => {
           <Box>
             <SearchBar onSearch={handleSearch} variant="mobile" fullWidth />
           </Box>
-
           <NavigationMenu items={navigationItems} variant="mobile" />
-
           {isAuthenticated && user ? (
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 2 }}>
               <Typography
                 variant="body1"
-                sx={{ color: "#333", textAlign: "center" }}
+                sx={{ color: theme.palette.secondary.main, textAlign: 'center', fontWeight: 500 }}
               >
                 {t.nav.welcome}, {user.name}
               </Typography>
@@ -224,8 +272,9 @@ const Navbar: React.FC = () => {
                 }}
                 variant="contained"
                 fullWidth
+                sx={{ borderRadius: '10px', fontWeight: 500 }}
               >
-                {t.nav.profile || "Profile"}
+                {t.nav.profile || 'Profile'}
               </Button>
               <Button
                 onClick={() => {
@@ -234,6 +283,7 @@ const Navbar: React.FC = () => {
                 }}
                 variant="outlined"
                 fullWidth
+                sx={{ borderRadius: '10px', fontWeight: 500 }}
               >
                 {t.nav.logout}
               </Button>

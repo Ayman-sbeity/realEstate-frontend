@@ -11,14 +11,14 @@ import { styled } from "@mui/material/styles";
 
 const StyledLink = styled(Link)(({ theme }) => ({
   textDecoration: "none",
-  color: "#333",
+  color: theme.palette.text.primary,
   fontWeight: 600,
   fontSize: "1rem",
   padding: "8px 0",
   transition: "color 0.3s ease",
   position: "relative",
   "&:hover": {
-    color: "#d92228",
+    color: theme.palette.secondary.main,
     textDecoration: "none",
   },
   "&::after": {
@@ -28,7 +28,7 @@ const StyledLink = styled(Link)(({ theme }) => ({
     left: 0,
     width: 0,
     height: "2px",
-    backgroundColor: "#d92228",
+    backgroundColor: theme.palette.secondary.main,
     transition: "width 0.3s ease",
   },
   "&:hover::after": {
@@ -38,7 +38,7 @@ const StyledLink = styled(Link)(({ theme }) => ({
 
 const MobileListItem = styled(ListItem)(({ theme }) => ({
   padding: 0,
-  borderBottom: "1px solid #e6e6e6",
+  borderBottom: `1px solid ${theme.palette.divider}`,
   "&:last-child": {
     borderBottom: "none",
   },
@@ -46,12 +46,12 @@ const MobileListItem = styled(ListItem)(({ theme }) => ({
 
 const MobileLink = styled(Link)(({ theme }) => ({
   textDecoration: "none",
-  color: "#333",
+  color: theme.palette.text.primary,
   fontWeight: 600,
   fontSize: "1rem",
   width: "100%",
   "&:hover": {
-    color: "#d92228",
+    color: theme.palette.secondary.main,
     textDecoration: "none",
   },
 }));

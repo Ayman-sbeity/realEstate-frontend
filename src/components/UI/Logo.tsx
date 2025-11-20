@@ -6,7 +6,7 @@ const LogoContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   textDecoration: "none",
-  color: "#d92228",
+  color: theme.palette.primary.main,
   cursor: "pointer",
   "&:hover": {
     textDecoration: "none",
@@ -26,7 +26,7 @@ const LogoImage = styled("img")(({ theme }) => ({
 const LogoText = styled(Typography)(({ theme }) => ({
   fontWeight: 700,
   fontSize: "1.5rem",
-  color: "#d92228",
+  color: theme.palette.primary.main,
   [theme.breakpoints.down("md")]: {
     fontSize: "1.25rem",
   },
