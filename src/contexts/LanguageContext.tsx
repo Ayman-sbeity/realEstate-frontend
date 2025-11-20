@@ -1090,7 +1090,7 @@ const translations: Record<Language, Translations> = {
         next: "Next",
         previous: "Previous",
         close: "Close",
-        searchProperties: "Search Properties",
+        searchProperties: "Search",
       },
     },
     components: {
@@ -1679,7 +1679,7 @@ const translations: Record<Language, Translations> = {
         next: "التالي",
         previous: "السابق",
         close: "إغلاق",
-        searchProperties: "البحث عن عقارات",
+        searchProperties: "البحث",
       },
     },
     components: {

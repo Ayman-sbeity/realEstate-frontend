@@ -113,13 +113,13 @@ const Home: React.FC = () => {
             variant="h2"
             component="h1"
             sx={{
-              fontWeight: 600,
+              fontWeight: 700,
               mb: 3,
               textShadow: "0 2px 8px rgba(0, 0, 0, 0.5)",
-              fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" },
-              letterSpacing: "0.5px",
-              lineHeight: 1.3,
-              color: "#ffffff",
+              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
+              letterSpacing: "1px",
+              lineHeight: 1.2,
+              color: "#fff",
               fontFamily: "Georgia, serif",
             }}
           >
@@ -129,281 +129,118 @@ const Home: React.FC = () => {
             variant="h6"
             sx={{
               mb: 5,
-              opacity: 0.95,
-              fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.35rem" },
+              opacity: 0.98,
+              fontSize: { xs: "1.2rem", sm: "1.35rem", md: "1.5rem" },
               textShadow: "0 1px 4px rgba(0, 0, 0, 0.5)",
-              fontWeight: 300,
-              letterSpacing: "0.3px",
-              lineHeight: 1.6,
-              maxWidth: "650px",
+              fontWeight: 400,
+              letterSpacing: "0.5px",
+              lineHeight: 1.5,
+              maxWidth: "700px",
               margin: "0 auto 40px",
               fontFamily: '"Helvetica Neue", Arial, sans-serif',
             }}
           >
             {t.pages.home.hero.subtitle}
           </Typography>
-          <SearchContainer>
+          <SearchContainer sx={{ boxShadow: "0 12px 32px rgba(0,0,0,0.18)", border: "1px solid #e0e0e0", padding: { xs: 2, sm: 4, md: 6 }, mt: 2 }}>
             <Typography
               variant="h6"
               sx={{
                 mb: 3,
-                color: "#333",
-                fontWeight: 500,
+                color: theme.palette.primary.main,
+                fontWeight: 600,
                 textAlign: "center",
-                fontSize: { xs: "1rem", sm: "1.1rem" },
+                fontSize: { xs: "1.1rem", sm: "1.2rem" },
+                letterSpacing: "0.2px",
               }}
             >
               {t.pages.home.hero.searchStartLabel}
             </Typography>
-
-            <Stack spacing={2}>
-              <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
-                  gap: 2,
-                }}
-              >
-                <FormControl fullWidth>
-                  <InputLabel>{t.pages.home.hero.location}</InputLabel>
-                  <Select
-                    value={location}
-                    label={t.pages.home.hero.location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    sx={{
-                      "& .MuiSelect-select": {
-                        display: "flex",
-                        alignItems: "center",
-                      },
-                    }}
-                  >
-                    <MenuItem value="beirut">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <LocationOnIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Beirut
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="jounieh">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <LocationOnIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Jounieh
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="byblos">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <LocationOnIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Byblos (Jbeil)
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="tripoli">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <LocationOnIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Tripoli
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="saida">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <LocationOnIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Saida (Sidon)
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="batroun">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <LocationOnIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Batroun
-                      </Box>
-                    </MenuItem>
-                  </Select>
-                </FormControl>
-
-                <FormControl fullWidth>
-                  <InputLabel>{t.pages.home.featured.propertyType}</InputLabel>
-                  <Select
-                    value={propertyType}
-                    label={t.pages.home.featured.propertyType}
-                    onChange={(e) => setPropertyType(e.target.value)}
-                  >
-                    <MenuItem value="house">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <HomeIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        House
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="apartment">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <HomeIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Apartment
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="condo">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <HomeIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Condo
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="townhouse">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <HomeIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Townhouse
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="villa">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <HomeIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Villa
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="land">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <HomeIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        Land
-                      </Box>
-                    </MenuItem>
-                  </Select>
-                </FormControl>
-
-                <FormControl fullWidth>
-                  <InputLabel>{t.pages.home.hero.priceRange}</InputLabel>
-                  <Select
-                    value={priceRange}
-                    label={t.pages.home.hero.priceRange}
-                    onChange={(e) => setPriceRange(e.target.value)}
-                  >
-                    <MenuItem value="0-200k">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <AttachMoneyIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        $0 - $200,000
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="200k-400k">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <AttachMoneyIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        $200,000 - $400,000
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="400k-600k">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <AttachMoneyIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        $400,000 - $600,000
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="600k-800k">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <AttachMoneyIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        $600,000 - $800,000
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="800k-1m">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <AttachMoneyIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        $800,000 - $1,000,000
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="1m+">
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <AttachMoneyIcon
-                          sx={{ color: theme.palette.secondary.main, fontSize: "1.2rem" }}
-                        />
-                        $1,000,000+
-                      </Box>
-                    </MenuItem>
-                  </Select>
-                </FormControl>
-              </Box>
-
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: { xs: 2, md: 3 },
+              }}
+            >
+              <FormControl variant="outlined" sx={{ minWidth: 180, background: "#fff", borderRadius: 2, boxShadow: "0 2px 8px rgba(0,0,0,0.07)" }}>
+                <InputLabel>{t.pages.home.hero.location}</InputLabel>
+                <Select
+                  value={location}
+                  label={t.pages.home.hero.location}
+                  onChange={(e) => setLocation(e.target.value)}
+                >
+                  <MenuItem value="beirut">Beirut</MenuItem>
+                  <MenuItem value="jounieh">Jounieh</MenuItem>
+                  <MenuItem value="byblos">Byblos (Jbeil)</MenuItem>
+                  <MenuItem value="tripoli">Tripoli</MenuItem>
+                  <MenuItem value="saida">Saida (Sidon)</MenuItem>
+                  <MenuItem value="batroun">Batroun</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl variant="outlined" sx={{ minWidth: 180, background: "#fff", borderRadius: 2, boxShadow: "0 2px 8px rgba(0,0,0,0.07)" }}>
+                <InputLabel>{t.pages.home.featured.propertyType}</InputLabel>
+                <Select
+                  value={propertyType}
+                  label={t.pages.home.featured.propertyType}
+                  onChange={(e) => setPropertyType(e.target.value)}
+                >
+                  <MenuItem value="house">House</MenuItem>
+                  <MenuItem value="apartment">Apartment</MenuItem>
+                  <MenuItem value="condo">Condo</MenuItem>
+                  <MenuItem value="townhouse">Townhouse</MenuItem>
+                  <MenuItem value="villa">Villa</MenuItem>
+                  <MenuItem value="land">Land</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl variant="outlined" sx={{ minWidth: 180, background: "#fff", borderRadius: 2, boxShadow: "0 2px 8px rgba(0,0,0,0.07)" }}>
+                <InputLabel>{t.pages.home.hero.priceRange}</InputLabel>
+                <Select
+                  value={priceRange}
+                  label={t.pages.home.hero.priceRange}
+                  onChange={(e) => setPriceRange(e.target.value)}
+                >
+                  <MenuItem value="0-200k">$0 - $200,000</MenuItem>
+                  <MenuItem value="200k-400k">$200,000 - $400,000</MenuItem>
+                  <MenuItem value="400k-600k">$400,000 - $600,000</MenuItem>
+                  <MenuItem value="600k-800k">$600,000 - $800,000</MenuItem>
+                  <MenuItem value="800k-1m">$800,000 - $1,000,000</MenuItem>
+                  <MenuItem value="1m+">$1,000,000+</MenuItem>
+                </Select>
+              </FormControl>
               <Button
-                fullWidth
                 variant="contained"
-                size="large"
+                size="medium"
                 onClick={handleSearch}
                 startIcon={<SearchIcon />}
                 sx={{
-                  backgroundColor: theme.palette.secondary.main,
-                  color: "white",
-                  py: 1.5,
-                  fontSize: "1.1rem",
+                  backgroundColor: theme.palette.primary.main,
+                  color: "#fff",
+                  px: 3,
+                  py: 1,
+                  fontSize: "0.95rem",
                   fontWeight: 500,
+                  borderRadius: 2,
+                  boxShadow: "0 4px 16px rgba(11,95,255,0.12)",
                   textTransform: "none",
-                  boxShadow: "0 4px 12px rgba(217, 34, 40, 0.3)",
-                  "&:hover": {
-                    backgroundColor: theme.palette.secondary.dark || "#0a4edc",
-                    boxShadow: `0 6px 16px ${theme.palette.secondary.light ? `rgba(11,95,255,0.2)` : `rgba(10, 15, 36, 0.12)`}`,
+                  transition: "all 0.2s",
+                  alignSelf: { xs: 'stretch', md: 'center' },
+                  height: { md: '44px' },
+                  minWidth: 140,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  '&:hover': {
+                    backgroundColor: theme.palette.primary.dark,
+                    boxShadow: "0 6px 24px rgba(11,95,255,0.18)",
                   },
                 }}
               >
                 {t.pages.common.searchProperties}
               </Button>
-            </Stack>
+            </Box>
           </SearchContainer>
         </HeroContent>
       </HeroSection>
