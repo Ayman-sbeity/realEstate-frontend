@@ -14,7 +14,7 @@ const LayoutContainer = styled(Box)(({ theme }) => ({
 
 const MainContent = styled("main")(({ theme }) => ({
   flex: 1,
-  minHeight: "calc(100vh - 160px)", // Adjust based on navbar and footer height
+  minHeight: "calc(100vh - 160px)", 
 }));
 
 interface LayoutProps {

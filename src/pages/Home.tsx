@@ -21,8 +21,6 @@ import {
 import { styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import HomeIcon from "@mui/icons-material/Home";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import PeopleIcon from "@mui/icons-material/People";
@@ -559,7 +557,7 @@ const Home: React.FC = () => {
         </Container>
       </ContentSection>
 
-      {/* Interactive Map Section */}
+      {/* Interactive Map Section - South Lebanon Focus */}
       <Box sx={{ backgroundColor: "#fff", py: 8 }}>
         <Container maxWidth="lg">
           <Typography
@@ -575,7 +573,7 @@ const Home: React.FC = () => {
               fontFamily: "Georgia, serif",
             }}
           >
-            {t.pages.home.locations.title}
+            South Lebanon Cities
           </Typography>
           <Typography
             variant="body1"
@@ -586,93 +584,118 @@ const Home: React.FC = () => {
               fontSize: "1.1rem",
             }}
           >
-            {t.pages.home.locations.subtitle}
+            Explore properties in the heart of South Lebanon.
           </Typography>
 
+          {/* City Filter Dropdown */}
+          <Box sx={{ textAlign: "center", mb: 4 }}>
+            <FormControl variant="outlined" sx={{ minWidth: 220 }}>
+              <InputLabel>City</InputLabel>
+              <Select
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                label="City"
+              >
+                <MenuItem value="">All Cities</MenuItem>
+                <MenuItem value="saida">Saida</MenuItem>
+                <MenuItem value="tyre">Tyre</MenuItem>
+                <MenuItem value="nabatieh">Nabatieh</MenuItem>
+                <MenuItem value="jezzine">Jezzine</MenuItem>
+                <MenuItem value="bintjbeil">Bint Jbeil</MenuItem>
+                <MenuItem value="marjayoun">Marjayoun</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+
+          {/* South Lebanon Cities Cards with Features */}
           <Box
             sx={{
               display: "grid",
               gridTemplateColumns: {
                 xs: "1fr",
                 sm: "repeat(2, 1fr)",
-                md: "repeat(4, 1fr)",
+                md: "repeat(3, 1fr)",
               },
               gap: 3,
             }}
           >
             {[
               {
-                name: t.pages.home.locations.beirut,
-                properties: 1250,
-                icon: "🏙️",
-              },
-              {
-                name: t.pages.home.locations.jounieh,
-                properties: 680,
-                icon: "🏖️",
-              },
-              {
-                name: t.pages.home.locations.byblos,
-                properties: 420,
-                icon: "🏰",
-              },
-              {
-                name: t.pages.home.locations.tripoli,
-                properties: 550,
-                icon: "🕌",
-              },
-              {
-                name: t.pages.home.locations.saida,
+                name: "Saida",
                 properties: 380,
                 icon: "🏛️",
+                feature: "Historic & Coastal",
               },
               {
-                name: t.pages.home.locations.batroun,
-                properties: 290,
-                icon: "⛵",
-              },
-              {
-                name: t.pages.home.locations.zahle,
-                properties: 310,
-                icon: "🏔️",
-              },
-              {
-                name: t.pages.home.locations.tyre,
+                name: "Tyre",
                 properties: 240,
                 icon: "🌊",
+                feature: "Beachfront & Ancient Ruins",
               },
-            ].map((location, index) => (
-              <Card
-                key={index}
-                sx={{
-                  textAlign: "center",
-                  p: 3,
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-5px)",
-                    boxShadow: "0 8px 20px rgba(217, 34, 40, 0.15)",
-                    backgroundColor: "#fffaf0",
-                  },
-                }}
-              >
-                <Typography sx={{ fontSize: "3rem", mb: 1 }}>
-                  {location.icon}
-                </Typography>
-                <Typography
-                  variant="h6"
-                  sx={{ fontWeight: 600, mb: 0.5, color: "#1a1a1a" }}
+              {
+                name: "Nabatieh",
+                properties: 150,
+                icon: "🏞️",
+                feature: "Village & Greenery",
+              },
+              {
+                name: "Jezzine",
+                properties: 90,
+                icon: "🌲",
+                feature: "Mountain & Waterfalls",
+              },
+              {
+                name: "Bint Jbeil",
+                properties: 70,
+                icon: "🏡",
+                feature: "Rural & Community",
+              },
+              {
+                name: "Marjayoun",
+                properties: 60,
+                icon: "🌳",
+                feature: "Agricultural & Scenic",
+              },
+            ]
+              .filter(city => !location || city.name.toLowerCase().replace(/\s/g,"") === location)
+              .map((city, index) => (
+                <Card
+                  key={index}
+                  sx={{
+                    textAlign: "center",
+                    p: 3,
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-5px)",
+                      boxShadow: "0 8px 20px rgba(217, 34, 40, 0.15)",
+                      backgroundColor: "#fffaf0",
+                    },
+                  }}
                 >
-                  {location.name}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ color: theme.palette.secondary.main, fontWeight: 500 }}
-                >
-                  {location.properties} {t.pages.home.locations.properties}
-                </Typography>
-              </Card>
-            ))}
+                  <Typography sx={{ fontSize: "3rem", mb: 1 }}>
+                    {city.icon}
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: 600, mb: 0.5, color: "#1a1a1a" }}
+                  >
+                    {city.name}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: theme.palette.secondary.main, fontWeight: 500 }}
+                  >
+                    {city.properties} {t.pages.home.locations.properties}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "#666", fontWeight: 400, mt: 1 }}
+                  >
+                    {city.feature}
+                  </Typography>
+                </Card>
+              ))}
           </Box>
 
           <Box sx={{ textAlign: "center", mt: 5 }}>
@@ -693,7 +716,7 @@ const Home: React.FC = () => {
                 },
               }}
             >
-              View Interactive Map
+              View South Lebanon Map
             </Button>
           </Box>
         </Container>
@@ -740,17 +763,17 @@ const Home: React.FC = () => {
           >
             {[
               {
-                name: "Ayman Sbeity",
+                name: "Kassem Fakih",
                 specialty: "Luxury Properties & Investment",
                 phone: "+961 3 123 456",
-                email: "ayman@realty.com",
+                email: "kassem@realty.com",
                 deals: 200,
               },
               {
-                name: "Richy",
+                name: "Ali Fakih",
                 specialty: "Residential & Commercial Sales",
                 phone: "+961 3 234 567",
-                email: "richy@realty.com",
+                email: "ali@realty.com",
                 deals: 180,
               },
             ].map((agent, index) => (
@@ -874,193 +897,9 @@ const Home: React.FC = () => {
         </Container>
       </ContentSection>
 
-      {/* Latest Blog/News Section */}
-      <Box sx={{ backgroundColor: "#fff", py: 8 }}>
-        <Container maxWidth="lg">
-          <Typography
-            variant="h3"
-            component="h2"
-            sx={{
-              textAlign: "center",
-              mb: 2,
-              color: "#1a1a1a",
-              fontWeight: 500,
-              fontSize: { xs: "1.875rem", sm: "2.25rem", md: "2.75rem" },
-              letterSpacing: "0.5px",
-              fontFamily: "Georgia, serif",
-            }}
-          >
-            {t.pages.home.news.title}
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              textAlign: "center",
-              color: "#666",
-              mb: 6,
-              fontSize: "1.1rem",
-            }}
-          >
-            {t.pages.home.news.subtitle}
-          </Typography>
 
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
-              gap: 4,
-            }}
-          >
-            {[
-              {
-                title: "Lebanon Real Estate Market Trends 2025",
-                excerpt:
-                  "Discover the latest trends shaping Lebanon's real estate market and what it means for buyers and investors...",
-                date: "October 15, 2025",
-                category: "Market Analysis",
-                readTime: "5 min read",
-              },
-              {
-                title: "Top 10 Neighborhoods in Beirut for Families",
-                excerpt:
-                  "Looking for a family-friendly neighborhood in Beirut? Here are our top picks with excellent schools and amenities...",
-                date: "October 12, 2025",
-                category: "Buying Guide",
-                readTime: "7 min read",
-              },
-              {
-                title: "Investment Opportunities in Lebanese Coastal Cities",
-                excerpt:
-                  "Explore lucrative investment opportunities in Jounieh, Byblos, and other coastal gems of Lebanon...",
-                date: "October 8, 2025",
-                category: "Investment",
-                readTime: "6 min read",
-              },
-            ].map((article, index) => (
-              <Card
-                key={index}
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-8px)",
-                    boxShadow: "0 12px 24px rgba(0,0,0,0.15)",
-                  },
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image="/mountainhead-house.webp"
-                  alt={article.title}
-                  sx={{ objectFit: "cover" }}
-                />
-                <CardContent
-                  sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}
-                >
-                  <Chip
-                    label={article.category}
-                    size="small"
-                    sx={{
-                      alignSelf: "flex-start",
-                      backgroundColor: theme.palette.secondary.light || "#e3f0ff",
-                      color: theme.palette.secondary.main,
-                      fontWeight: 500,
-                      mb: 2,
-                    }}
-                  />
-                  <Typography
-                    variant="h6"
-                    sx={{ fontWeight: 600, mb: 2, lineHeight: 1.4 }}
-                  >
-                    {article.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "#666", mb: 3, flexGrow: 1 }}
-                  >
-                    {article.excerpt}
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      mb: 2,
-                    }}
-                  >
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        color: "#999",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 0.5,
-                      }}
-                    >
-                      <CalendarTodayIcon sx={{ fontSize: "0.875rem" }} />
-                      {article.date}
-                    </Typography>
-                    <Typography variant="caption" sx={{ color: "#999" }}>
-                      {article.readTime}
-                    </Typography>
-                  </Box>
-                  <Button
-                    fullWidth
-                    endIcon={<ArrowForwardIcon />}
-                    sx={{
-                      color: theme.palette.secondary.main,
-                      textTransform: "none",
-                      fontWeight: 500,
-                      justifyContent: "space-between",
-                      "&:hover": {
-                        backgroundColor: theme.palette.secondary.light ? "rgba(11, 95, 255, 0.05)" : "#e3f0ff",
-                      },
-                    }}
-                  >
-                    Read More
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </Box>
 
-          <Box sx={{ textAlign: "center", mt: 6 }}>
-            <Button
-              variant="contained"
-              size="large"
-              endIcon={<ArticleIcon />}
-              sx={{
-                backgroundColor: theme.palette.secondary.main,
-                color: "white",
-                px: 4,
-                py: 1.5,
-                fontSize: "1rem",
-                fontWeight: 500,
-                textTransform: "none",
-                "&:hover": {
-                  backgroundColor: theme.palette.secondary.dark || theme.palette.secondary.main,
-                },
-              }}
-            >
-              {t.pages.home.news.viewAllArticles}
-            </Button>
-          </Box>
-        </Container>
-      </Box>
-
-      {/* Google AdSense Ad */}
-      <Box sx={{ backgroundColor: "#f8f9fa", py: 6 }}>
-        <Container maxWidth="lg">
-          <AdSenseAd adSlot="4007518640" fullWidth={true} />
-
-          {/* Second Ad Unit - Fluid Format */}
-          <Box sx={{ mt: 6, pt: 3, borderTop: "1px solid #e0e0e0" }}>
-            <AdSenseAd adSlot="9340764048" adFormat="auto" fullWidth={true} />
-          </Box>
-        </Container>
-      </Box>
+  
     </Box>
   );
 };

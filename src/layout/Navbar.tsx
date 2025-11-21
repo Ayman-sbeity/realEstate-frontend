@@ -98,9 +98,8 @@ const Navbar: React.FC = () => {
   const { user, logout, isAuthenticated } = useAuth();
 
   const navigationItems: NavigationItem[] = [
-    { label: t.nav.buy, href: "/listings?type=sale" },
+    { label: "Properties", href: "/listings" },
     { label: t.nav.sell, href: "/sell" },
-    { label: t.nav.rent, href: "/listings?type=rent" },
     { label: t.nav.aboutUs, href: "/about" },
     { label: t.nav.contact, href: "/contact" },
   ];
